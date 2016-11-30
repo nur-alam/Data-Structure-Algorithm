@@ -2,27 +2,20 @@
 
 using namespace std;
 
-void selectionSort(int arr[],int arr_size)
+// insertionSort
+void insertionSort(int arr[],int arr_size)
 {
-    int i,temp;
-    for(int i = 0;i<arr_size-1;i++)
-    {
-        int min,j;
-        min = i;
-        for(j=i+1;j<arr_size;j++)
-        {
-            if(arr[j]<arr[min])
-            {
-                min = j;
-            }
+    int i,value,hole;
+    for(i=1;i<arr_size;i++){
+        value = arr[i];
+        hole = i;
+        while(hole>0 && arr[hole-1]>value){
+            arr[hole] = arr[hole-1];
+            hole--;
         }
-        //swap(arr[i],arr[min]);
-        temp = arr[i];
-        arr[i] = arr[min];
-        arr[min] = temp;
+        arr[hole] = value;
     }
 }
-
 
 // for printing array
 
@@ -36,12 +29,12 @@ void printArray(int arr[],int arr_size){
 
 int main(){
     int i;
-    int arr[] = {2,7,4,2,5,3};
+    int arr[] = {7,2,1,4,5,3};
     int arr_size = sizeof(arr)/4;
     cout << "Before sorting the array look like \n"<<endl;
     printArray(arr,arr_size);
 
-    selectionSort(arr,arr_size);
+    insertionSort(arr,arr_size);
     cout << "\nAfter sorting the array look like \n"<<endl;
     printArray(arr,arr_size);
 

@@ -2,6 +2,7 @@
 
 using namespace std;
 
+//bubleSort function
 void bubleSort(int arr[],int arr_size)
 {
     int i, j, temp;
@@ -27,24 +28,28 @@ void bubleSort(int arr[],int arr_size)
     }
 }
 
+// for printing array
+
+void printArray(int arr[],int arr_size){
+    int i;
+    for(i=0;i<arr_size;i++)
+    {
+        cout << "\t" << arr[i] << " ";
+    }
+}
+
 int main(){
 
     int i;
     int arr[] = {2,7,4,2,5,3};//{1,2,3,4,6,5};
     int arr_size = sizeof(arr)/4;
     cout << "Before sorting the array look like \n"<<endl;
-    for(i=0;i<arr_size;i++)
-    {
-        cout << "\t" << arr[i] << " ";
-    }
+    printArray(arr,arr_size);
     cout<<endl;
     bubleSort(arr,arr_size);
 
     cout << "\nAfter sorting the array look like \n"<<endl;
-    for(i=0;i<arr_size;i++)
-    {
-        cout << "\t" << arr[i] << " ";
-    }
+    printArray(arr,arr_size);
 
     cout << endl;
 
