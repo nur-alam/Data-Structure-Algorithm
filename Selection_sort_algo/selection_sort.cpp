@@ -2,6 +2,10 @@
 
 using namespace std;
 
+// for printing array
+
+void printArray(int arr[],int arr_size);
+
 void selectionSort(int arr[],int arr_size)
 {
     int i,temp;
@@ -24,16 +28,6 @@ void selectionSort(int arr[],int arr_size)
 }
 
 
-// for printing array
-
-void printArray(int arr[],int arr_size){
-    int i;
-    for(i=0;i<arr_size;i++)
-    {
-        cout << "\t" << arr[i] << " ";
-    }
-}
-
 int main(){
     int i;
     int arr[] = {2,7,4,2,5,3};
@@ -49,4 +43,14 @@ int main(){
 
     return 0;
 
+}
+
+// for printing array
+
+void printArray(int arr[],int arr_size){
+    int i;
+    for(i=0;i<arr_size;i++)
+    {
+        cout << "\t" << arr[i] << " ";
+    }
 }
