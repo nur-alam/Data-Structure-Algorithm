@@ -40,6 +40,7 @@ int main(){
     printArray(arr,arr_size);
 
     quickSort(arr,0,arr_size-1);
+
     cout << "\nAfter sorting the array look like \n"<<endl;
     printArray(arr,arr_size);
 
