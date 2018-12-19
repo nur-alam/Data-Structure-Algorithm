@@ -1,52 +1,31 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
-int main(){
-
-    int arr[] = {2,3,4,5,6,7,8,10};
-    int i , startPoint, endPoint, midPoint, location;
-    int item ; //the value we want search from array
-    int arr_size = sizeof(arr)/4;
-    // array value printing
-    cout<<"Array value"<<"\t";
-    for(i=0;i<arr_size;i++)
-        cout<<arr[i]<<" ";
-
-    // start binary search
-    startPoint = 0; //first index of the array
-    endPoint = (arr_size-1); //last index of the array
-    location = -1; // just initialize a location
-
-    cout<<endl<< "Enter a number to search ";
-    cin>>item;
-
-    while(startPoint <= endPoint)
-    {
-        midPoint = (startPoint+endPoint)/2;
-        if(arr[midPoint]==item)
-            {
-               location = midPoint;
-               break;
-            }
-        else if(arr[midPoint]<item)
-            {
-                startPoint = midPoint + 1;
-            }
+int binary_search(int arr[],int len , int index){
+    int left, right, mid;
+    left = 0;
+    right = len - 1;
+    while (left <= right){
+        mid = (left + right) / 2;
+        if(arr[mid] == index)
+            return mid;
+        if(arr[mid] < index)
+            left = mid + 1;
         else
-            {
-                endPoint = midPoint - 1;
-            }
+            right = mid - 1;
     }
+    return -1;
+}
 
-    if(location==-1)
-    {
-        cout<<item<<" not found in the array."<<endl;
-    }else
-    {
-        cout<<item<<" found in the array location : "<<midPoint<<endl;
-    }
+int main() {
+
+    int arr[] = {1,2,3,4,5};
+    int len = sizeof(arr) / sizeof(arr[0]);
+    int index = binary_search(arr,len,0);
+    cout << arr[index] << endl;
 
     return 0;
-
 }
