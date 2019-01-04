@@ -69,16 +69,34 @@ Node* delete_node(Node* head,int position){
     return head;
 }
 
+void sorted_insert(int data , Node** head_ref, Node** tail_ref){
+    Node* newnode = create_node(data,NULL);
+    if(*head_ref == NULL || (*head_ref)->data > newnode->data){
+        newnode->next = (*head_ref);
+        (*head_ref) = newnode;
+    }else{
+        Node *temp = (*head_ref);
+        Node *temp2 = temp->next;
+        while (temp2 != NULL && newnode->data > temp2->data){
+            temp = temp2;
+            temp2 = temp2->next;
+        }
+        temp->next = newnode;
+        newnode->next = temp2;
+    }
+
+}
+
 int main() {
 
     Node *head = NULL,*tail=NULL;
-    append(12,&head,&tail);
-    append(14,&head,&tail);
-    append(16,&head,&tail);
-    append(18,&head,&tail);
-    head = delete_node(head,4);
-    //print_linkedlist(head);
-    print_reverse(head);
+    sorted_insert(22,&head,&tail);
+    sorted_insert(14,&head,&tail);
+    sorted_insert(16,&head,&tail);
+    sorted_insert(1,&head,&tail);
+    //head = delete_node(head,4);
+    print_linkedlist(head);
+    //print_reverse(head);
 
     return 0;
 }
