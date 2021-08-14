@@ -1,0 +1,13 @@
+{
+  "name": "withJavascriptdoubly",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start" : "nodemon linkedlist/doublyLinkedList.js"
+
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
